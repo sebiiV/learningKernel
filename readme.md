@@ -1,9 +1,8 @@
 # LearningKernel 
-```
-The kernel is a computer program at the core of a computer's operating system that has complete control over everything in the system. It is the "portion of the operating system code that is always resident in memory", and facilitates interactions between hardware and software components. On most systems, the kernel is one of the first programs loaded on startup (after the bootloader). It handles the rest of startup as well as memory, peripherals, and input/output (I/O) requests from software, translating them into data-processing instructions for the central processing unit. 
-```
+> The kernel is a computer program at the core of a computer's operating system that has complete control over everything in the system. It is the "portion of the operating system code that is always resident in memory", and facilitates interactions between hardware and software components. On most systems, the kernel is one of the first programs loaded on startup (after the bootloader). It handles the rest of startup as well as memory, peripherals, and input/output (I/O) requests from software, translating them into data-processing instructions for the central processing unit. 
 
-![alt text](images/demo.png "Bugcheck")
+![Alt text](https://raw.githubusercontent.com/sebiiV/learningKernel/master/images/demo.PNG "demo")
+
 
 ## Definitions
 
@@ -13,7 +12,7 @@ The kernel is a computer program at the core of a computer's operating system th
 
 ## Tools
 
-OSRLoader https://www.osronline.com/article.cfm%5Earticle=157.htm\
+OSRLoader https://www.osronline.com/article.cfm%5Earticle=157.htm \
 HackSysVulnerabledriver https://github.com/hacksysteam/HackSysExtremeVulnerableDriver.git \
 Hyper-V \
 winDBG
