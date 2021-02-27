@@ -22,9 +22,24 @@ winDBG
 
 
 ## Commands
-```
+Finding a loaded driver
+```cmd
 C:\Users\kernel>driverquery | FindStr HEVD
 HEVD         HEVD                   Kernel        25/02/2021 21:55:53
+```
+Generating cyclical payload and finding it
+```bash
+kali@kali:~/Desktop$ /usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 4000
+Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0A ... 
+kali@kali:~/Desktop$ /usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -q 31724330
+[*] Exact match at offset 2072
+
+```
+
+wingdb add symbols
+```
+kd> .sympath+ C:\Users\sebiV\git\HackSysExtremeVulnerableDriver
+kd> .reload /f
 ```
 
 

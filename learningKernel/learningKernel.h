@@ -14,4 +14,3 @@ std::string banner = R"(
 )";
 
 
-int main(int argc, char* argv[]);
