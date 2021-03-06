@@ -70,6 +70,36 @@ Example IOCTL
 - The IRP is then passed down the Windows driver stack until a driver that can handle it is found
 - pwn
 
+
+## Reverse engineering
+
+Like DLLs, Drivers specify an entrypoint, called ``DriverEntry`` and has the following signature
+```c
+NTSTATUS DriverEntry(
+  _In_ struct _DRIVER_OBJECT *DriverObject,
+  _In_ PUNICODE_STRING       RegistryPath
+)
+```
+Which initialises the driver
+```c
+  RtlInitUnicodeString(&DeviceName,L"\\Device\\HackSysExtremeVulnerableDriver");
+  RtlInitUnicodeString(&DosDeviceName,L"\\DosDevices\\HackSysExtremeVulnerableDriver");
+  uVar1 = IoCreateDevice(param_1,0,&DeviceName,0x22,0x100,0,&DeviceObject);
+```
+
+In order to see how each ``IOCTL`` request is handled we look at ``IrpDeviceIoCtlHandler``
+```c
+// which devolves into a huge if{}else{} chain
+    ...
+          if (uVar2 == 0x222003) {
+            DbgPrintEx(0x4d,3,"****** HEVD_IOCTL_BUFFER_OVERFLOW_STACK ******\n");
+            uVar4 = BufferOverflowStackIoctlHandler(param_2,lVar1);
+            uVar2 = (uint)uVar4;
+            pcVar6 = "****** HEVD_IOCTL_BUFFER_OVERFLOW_STACK ******\n";
+          }
+    ...
+```
+
 ## Links
 ---
 
