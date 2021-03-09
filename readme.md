@@ -37,9 +37,9 @@ kali@kali:~/Desktop$ /usr/share/metasploit-framework/tools/exploit/pattern_offse
 ```
 
 wingdb add symbols
-```
-kd> .sympath+ C:\Users\sebiV\git\HackSysExtremeVulnerableDriver
-kd> .reload /f
+```c
+kd> .sympath+ C:\Users\sebiV\git\HackSysExtremeVulnerableDriver\build\driver\windows\vulnerable\x64
+kd> .reload /f // ages! don' use /f unless needed
 ```
 
 
@@ -100,7 +100,16 @@ In order to see how each ``IOCTL`` request is handled we look at ``IrpDeviceIoCt
     ...
 ```
 
-## Links
+
+## winDBG
+
+```c
+kd> bp HEVD!TriggerStackOverflow
+```
+
+
+
+# Links
 ---
 
 https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/setting-up-a-network-debugging-connection-automatically
